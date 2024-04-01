@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<div class="container">
+		<form method="post" action="" name="add-film">
+
+
+
+			<h4>Contact Us</h4>
+		<input type="text" name="name" placeholder="Name">
+    <textarea name="description" rows="7" placeholder="Your Message"></textarea>
+		<input type="text" name="url" placeholder="Number">
+		<input type="text" name="poster" placeholder="Email">
+		<input type="text" name="category" placeholder="Email">
+
+
+
+
+
+
+			<input type="submit" value="Submit" id="submit">
+		</form>
+	</div>
+
+	<script>
+    
+    
+    
+    
+    
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbw3W2ThaTzTe-QPXXwBoMzh-YXoeOYNtnXaVWlqZD7A5lEYOSFmwKoXICNKZt3PdK0k/exec'
+
+const form = document.forms['add-film']
+
+form.addEventListener('submit', e => {
+  e.preventDefault()
+  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+  .then(response => alert("Thank you! your form is submitted successfully." ))
+  .then(() => { window.location.reload(); })
+  .catch(error => console.error('Error!', error.message))
+})
+    
+    </script>
+</body>
+</html>
